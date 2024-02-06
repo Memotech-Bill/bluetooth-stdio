@@ -33,7 +33,7 @@ Your CMakeLists.txt file will need to include something like:
 ````
     add_subdirectory (/path/to/bluetooth_stdio stdio_bt)
     target_compile_definitions(bbcbasic PUBLIC
-      -DNAME="Pico"
+      -DBT_NAME="Pico"
       -DPICO_FLASH_BANK_TOTAL_SIZE=0x2000           # = 2 * FLASH_SECTOR_SIZE
       -DPICO_FLASH_BANK_STORAGE_OFFSET=0x1FE000     # = PICO_FLASH_SIZE_BYTES - PICO_FLASH_BANK_TOTAL_SIZE
       )
@@ -43,7 +43,7 @@ Your CMakeLists.txt file will need to include something like:
         )
 ````
 
-__NAME__ defines the name that will be given to the Bluetooth
+__BT_NAME__ defines the name that will be given to the Bluetooth
 service when you search for a connection.
 
 Alternately, to have your software specify the name given to the Bluetooth service, start your program with:
