@@ -46,6 +46,18 @@ Your CMakeLists.txt file will need to include something like:
 __NAME__ defines the name that will be given to the Bluetooth
 service when you search for a connection.
 
+Alternately, to have your software specify the name given to the Bluetooth service, start your program with:
+
+````
+#include "stdio_bt.h"
+
+    stdio_init_all();
+    cyw43_arch_init ();
+    if ( !stdio_bt_init_name ("Your_Service_Name") )
+        panic ("Failed to initialise service name\n");
+    stdio_set_driver_enabled (&stdio_bt, true);
+````
+
 The Bluetooth code uses 128 KB of flash memory to save
 paired connections. The __PICO_FLASH_BANK_*__ defines specify
 the location used for this. By default this is located at the
