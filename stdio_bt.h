@@ -8,6 +8,7 @@
 
 extern stdio_driver_t stdio_bt;
 void stdio_bt_init (void);
+bool stdio_bt_init_name (const char *psName)
 bool stdio_bt_connected (void);
 
 #endif

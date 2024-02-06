@@ -304,6 +304,32 @@ void stdio_bt_init (void)
     hci_power_control(HCI_POWER_ON);
     }
 
+static char *psBTName;
+
+bool stdio_bt_init_name (const char *psName)
+    {
+    psBTName = malloc (strlen (psName) + 19);
+    if ( psBTName == NULL ) return false;
+    strcpy (psBTName, psName);
+    strcat (psBTName, " 00:00:00:00:00:00");
+   
+    // printf ("stdio_bt_init\n");
+
+    // inform about BTstack state
+    hci_event_callback_registration.callback = &init_handler;
+    hci_add_event_handler(&hci_event_callback_registration);
+    
+    spp_service_setup();
+
+    gap_discoverable_control(1);
+    gap_ssp_set_io_capability(SSP_IO_CAPABILITY_DISPLAY_YES_NO);
+    gap_set_local_name(psBTName);
+
+    // turn on!
+    hci_power_control(HCI_POWER_ON);
+    return true;
+    }
+
 static void stdio_bt_out_chars (const char *buf, int len)
     {
     if ( rfcomm_channel_id == 0 ) return;
