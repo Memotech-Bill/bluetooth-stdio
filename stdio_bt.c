@@ -194,9 +194,8 @@ static void packet_handler (uint8_t packet_type, uint16_t channel, uint8_t *pack
     UNUSED(channel);
 
     bd_addr_t event_addr;
-    uint8_t   rfcomm_channel_nr;
-    uint16_t  mtu;
-    int i;
+    // uint8_t   rfcomm_channel_nr;
+    // uint16_t  mtu;
 
     switch (packet_type)
         {

@@ -8,8 +8,6 @@ if (NOT TARGET bluetooth_stdio)
     ${CMAKE_CURRENT_LIST_DIR}
     )
 
-  pico_generate_pio_header(bluetooth_stdio ${CMAKE_CURRENT_LIST_DIR}/sd_spi.pio)
-
   target_sources(bluetooth_stdio INTERFACE
     ${CMAKE_CURRENT_LIST_DIR}/stdio_bt.c
     )
