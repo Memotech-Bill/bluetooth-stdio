@@ -69,3 +69,23 @@ medium (such as SD card) to store this data.
 
 If using WiFi as well as Bluetooth, then replace
 __pico_cyw43_arch_none__ appropriately.
+
+The __test__ folder contains a simple test program.
+Build this in the standard fashion
+
+````
+cd bluetooth-stdio/test
+mkdir test
+cd test
+cmake ..
+make
+````
+
+Then copy the resulting __bt_test.uf2__ onto a Pico W.
+Connect a Bluetooth serial terminal to the resulting
+__Pico__ device. Lines typed into the terminal will
+be echoed back.
+
+Note that the test program is not protected against
+very long (>511 characters) input lines.
+

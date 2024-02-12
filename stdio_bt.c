@@ -189,13 +189,14 @@ static void spp_service_setup(void)
 
  */
 
+static uint8_t   rfcomm_channel_nr;
+static uint16_t  mtu;
+
 static void packet_handler (uint8_t packet_type, uint16_t channel, uint8_t *packet, uint16_t size)
     {
     UNUSED(channel);
 
     bd_addr_t event_addr;
-    // uint8_t   rfcomm_channel_nr;
-    // uint16_t  mtu;
 
     switch (packet_type)
         {
